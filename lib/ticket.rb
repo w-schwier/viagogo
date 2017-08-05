@@ -5,4 +5,6 @@ attr_reader :price
     @price = price
   end
 
+  # rand * (max-min) + min
+
 end

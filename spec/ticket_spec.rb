@@ -1,11 +1,11 @@
 require 'ticket'
 
 describe Ticket do
-  subject(:ticket) {described_class.new}
-  subject(:t2) {described_class.new(price: rand * (100-0.1) + 0.1)}
+  subject(:ticket) {described_class.new(price: 0)}
+  subject(:t2) {described_class.new}
 
 
-  it "checks ticket has zero price to start" do
+  it "checks ticket can have price set" do
     expect(ticket.price).to eq 0
   end
 

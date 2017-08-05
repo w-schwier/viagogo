@@ -16,6 +16,8 @@ A small ruby program that given an X and Y co-ordinate, returns the 5 nearest ve
 
 ### My Approach
 
+Looking at the above requirements I decided I needed a ticket, event and an interface class.
+
 ### Installation
 
 ### User Stories

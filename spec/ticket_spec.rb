@@ -6,7 +6,7 @@ describe Ticket do
 
 
   it "checks ticket can have price set" do
-    expect(ticket.price).to eq 0
+    expect(ticket.price).to eq "%.2f" % 0
   end
 
   it "checks tickets can have random prices" do

@@ -29,9 +29,7 @@ class Interface
   end
 
   def get_all_event_distances
-    events.each do |event|
-      get_distance(event)
-    end
+    events.each { |event| get_distance(event) }
     @distances = @distances.sort_by {|id, d | d}
   end
 
@@ -45,13 +43,15 @@ class Interface
     p "Closest events to (#{@x}, #{@y}): "
     results.each do |result|
       r = result[0]
-      p "Event: #{r.id} - £#{r.tickets}, Distance: #{result[1]}"
+      price = r.tickets.any? ? r.tickets.sort_by {|t| t.price}[0].price : "No tickets available"
+      # require 'pry'; binding.pry
+      p "Event: #{r.id} - #{price}, Distance: #{result[1]}"
     end
   end
 
   # def print_results
   #   @sorted_results.each do |result|
-  #
+  # r.tickets.sort_by {|t| t.price}[0].price
   #   end
   # end
 

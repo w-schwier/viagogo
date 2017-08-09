@@ -16,8 +16,8 @@ class Interface
 
   def run
     get_users_coordinates
-    get_all_events_distances
-    sort_distances
+    get_all_event_distances
+    # sort_distances
     print_results
   end
 
@@ -28,24 +28,32 @@ class Interface
     @y = $stdin.gets.chomp.to_i
   end
 
-  def get_all_events_distances
+  def get_all_event_distances
     events.each do |event|
       get_distance(event)
     end
+    @distances = @distances.sort_by {|id, d | d}
   end
 
   def get_distance(event)
     d = Distance.new(x1: @x, y1: @y, x2: event.x, y2: event.y)
-    @distances[event.id] = d.calculate
-  end
-
-  def sort_distances
-
+    @distances[event] = d.calculate
   end
 
   def print_results
-
+    results = @distances[0,5]
+    p "Closest events to (#{@x}, #{@y}): "
+    results.each do |result|
+      r = result[0]
+      p "Event: #{r.id} - £#{r.tickets}, Distance: #{result[1]}"
+    end
   end
+
+  # def print_results
+  #   @sorted_results.each do |result|
+  #
+  #   end
+  # end
 
   def test_setup
     @x = 0; @y = 0

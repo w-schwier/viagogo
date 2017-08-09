@@ -14,7 +14,13 @@ describe Interface do
   it "gets distances" do
     interface.start
     interface.test_setup
-    interface.get_closest_events
+    interface.get_all_event_distances
+    expect(interface.distances).to eq 10
+  end
+
+  it "checks results are sorted" do
+    interface.start
+    interface.run
     expect(interface.distances).to eq 10
   end
 

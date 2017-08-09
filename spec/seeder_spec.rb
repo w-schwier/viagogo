@@ -9,7 +9,8 @@ describe Seeder do
   end
 
   it 'checks all co-ordinates are unique' do
-
+    seeder.populate_ordinates
+    expect(seeder.ordinates).to eq []
   end
 
 end

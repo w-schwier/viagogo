@@ -1,13 +1,14 @@
 class Seeder
-  attr_reader :ordinates
-  X_POTENTIAL = (-10..10).to_a
-  Y_POTENTIAL = (-10..10).to_a
+  attr_reader :grid, :ordinates, :events
 
-  def initialize
+  def initialize(grid: Grid.new)
+    @grid = grid
     @ordinates = []
+    @events = []
   end
 
   def populate_ordinates
-    10.times {@ordinates.push([X_POTENTIAL.sample, Y_POTENTIAL.sample])}
+    @grid.make_grid
+    10.times { @ordinates.push(@grid.coordinates.shuffle.pop) }
   end
 end

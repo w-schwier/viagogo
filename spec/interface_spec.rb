@@ -11,4 +11,11 @@ describe Interface do
     expect(interface.events.length).to eq 10
   end
 
+  it "gets distances" do
+    interface.start
+    interface.test_setup
+    interface.get_closest_events
+    expect(interface.distances).to eq 10
+  end
+
 end

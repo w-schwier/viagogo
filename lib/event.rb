@@ -7,5 +7,4 @@ class Event
     @y = y
     @tickets = []
   end
-
 end

@@ -17,7 +17,6 @@ class Interface
   def run
     get_users_coordinates
     get_all_event_distances
-    # sort_distances
     print_results
   end
 
@@ -43,17 +42,11 @@ class Interface
     p "Closest events to (#{@x}, #{@y}): "
     results.each do |result|
       r = result[0]
-      price = r.tickets.any? ? r.tickets.sort_by {|t| t.price}[0].price : "No tickets available"
-      # require 'pry'; binding.pry
+      price = r.tickets.any? ? "£#{r.tickets.sort_by {|t| t.price}[0].price}" : "No tickets available"
       p "Event: #{r.id} - #{price}, Distance: #{result[1]}"
     end
   end
 
-  # def print_results
-  #   @sorted_results.each do |result|
-  # r.tickets.sort_by {|t| t.price}[0].price
-  #   end
-  # end
 
   def test_setup
     @x = 0; @y = 0

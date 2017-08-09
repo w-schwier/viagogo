@@ -1,11 +1,11 @@
 class Grid
   attr_reader :x, :y, :coordinates
-
-  # add constants for X and Y values
+  X = 10
+  Y = 10
 
   def initialize
-    @x = (-10..10).to_a
-    @y = (-10..10).to_a
+    @x = (-X..X).to_a
+    @y = (-Y..Y).to_a
     @coordinates =[]
   end
 

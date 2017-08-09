@@ -23,9 +23,7 @@ class Seeder
   def populate_events
     id = 1
     @ordinates.each do |x, y|
-      event = Event.new(id: id, x: x, y: y)
-      @events.push(event)
-      id += 1
+      @events.push(Event.new(id: id, x: x, y: y)); id += 1
     end
   end
 

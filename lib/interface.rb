@@ -1,5 +1,7 @@
 class Interface
-  attr_reader :seeder, :events, :x, :y, :sorted_events
+  attr_reader :seeder, :events
+
+  LISTED_VENUES = 5
 
   def initialize(seeder: Seeder.new)
     @seeder = seeder
@@ -23,20 +25,18 @@ class Interface
   end
 
   def calculate_distances
-    @sorted_events = DistanceLog.calculate_all(@x, @y, @events)
+    @sorted_events = DistanceSorter.calculate_all(@x, @y, @events)
   end
 
   def print_results
     p "Closest events to (#{@x}, #{@y}): "
-    list_events(@sorted_events[0,5])
+    @sorted_events[0,LISTED_VENUES].each { |result| list_event(result)}
   end
 
-  def list_events(results)
-    results.each do |result|
-      r = result[0]
-      price = r.tickets.any? ? "£#{r.tickets.sort_by {|t| t.price}[0].price}" : "No tickets available"
-      p "Event: #{r.id} - #{price}, Distance: #{result[1]}"
-    end
+  def list_event(result)
+    r = result[0]
+    price = r.tickets.any? ? "£#{r.tickets.sort_by {|t| t.price}[0].price}" : "No tickets available"
+    p "Event: #{r.id} - #{price}, Distance: #{result[1]}"
   end
 
   def test_setup

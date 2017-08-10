@@ -10,7 +10,7 @@ class Grid
   end
 
   def make_grid
-    @x.each { |x| @y.each { |y| @coordinates.push([x, y]) }}
+    self.x.each { |x| self.y.each { |y| self.coordinates.push([x, y]) }}
   end
 
 end

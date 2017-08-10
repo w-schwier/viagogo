@@ -1,5 +1,5 @@
 class Interface
-  attr_reader :seeder, :events
+  attr_reader :seeder, :events, :x, :y, :sorted_events
   LISTED_VENUES = 5
 
   def initialize(seeder: Seeder.new)
@@ -8,8 +8,8 @@ class Interface
   end
 
   def seed
-    @seeder.populate
-    @seeder.events.each { |event| @events.push(event) }
+    self.seeder.populate
+    self.seeder.events.each { |event| self.events.push(event) }
   end
 
   def run
@@ -24,12 +24,12 @@ class Interface
   end
 
   def calculate_distances
-    @sorted_events = DistanceSorter.calculate_all(@x, @y, @events)
+    @sorted_events = DistanceSorter.calculate_all(self.x, self.y, self.events)
   end
 
   def print_results
-    p "Closest events to (#{@x}, #{@y}): "
-    @sorted_events[0,LISTED_VENUES].each { |result| list_event(result)}
+    p "Closest events to (#{self.x}, #{self.y}): "
+    self.sorted_events[0,LISTED_VENUES].each { |result| list_event(result)}
   end
 
   def list_event(result)

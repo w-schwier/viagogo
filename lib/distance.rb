@@ -9,7 +9,7 @@ class Distance
   end
 
   def calculate
-    ((@x1 - @x2) + (@y1 - @y2)).abs
+    ((self.x1 - self.x2) + (self.y1 - self.y2)).abs
   end
 
 end

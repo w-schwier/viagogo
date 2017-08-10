@@ -32,6 +32,13 @@ Dealing with multiple events at the same coordinates is also easily dealt with. 
 
 ### Installation
 
+Open up terminal, change to the directory you want the repo and type ```git clone https://github.com/w-schwier/viagogo```
+
+Change into the directory ```cd viagogo```
+
+Install required gems by running ```bundle install``` If you don't already have bundle installed run ```brew install bundle```(this assumes you have homebrew installed)
+
+To run the app enter: ``` ruby ./lib/app.rb ```
 
 ### User Stories
 

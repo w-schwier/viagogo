@@ -34,7 +34,7 @@ class Interface
 
   def list_event(result)
     r = result[0]
-    price = r.tickets.any? ? "£#{r.tickets.sort_by {|t| t.price}[0].price}" : "No tickets available"
+    price = r.tickets.any? ? "$#{r.tickets.sort_by {|t| t.price}[0].price}" : "No tickets available"
     p "Event: #{r.id} - #{price}, Distance: #{result[1]}"
   end
 

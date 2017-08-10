@@ -1,6 +1,5 @@
 class Interface
   attr_reader :seeder, :events
-
   LISTED_VENUES = 5
 
   def initialize(seeder: Seeder.new)
@@ -8,7 +7,7 @@ class Interface
     @events = []
   end
 
-  def start
+  def seed
     @seeder.populate
     @seeder.events.each { |event| @events.push(event) }
   end

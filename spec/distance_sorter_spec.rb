@@ -1,6 +1,6 @@
-require 'sorter'
+require 'distance_sorter'
 
-describe Sorter do
+describe DistanceSorter do
   subject(:sorter) {described_class.new}
 
   before do

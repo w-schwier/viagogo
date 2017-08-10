@@ -7,5 +7,5 @@ require_relative "distance_sorter"
 require_relative "interface"
 
 app = Interface.new
-app.start
+app.seed
 app.run

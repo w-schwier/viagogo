@@ -1,12 +1,9 @@
 class Interface
-  attr_reader :seeder, :events, :x, :y, :distances
+  attr_reader :seeder, :events, :x, :y, :sorted_events
 
   def initialize(seeder: Seeder.new)
     @seeder = seeder
     @events = []
-    @x = nil
-    @y = nil
-    @distances = Hash.new( "distance" )
   end
 
   def start
@@ -16,37 +13,31 @@ class Interface
 
   def run
     get_users_coordinates
-    get_all_event_distances
+    calculate_distances
     print_results
   end
 
   def get_users_coordinates
-    puts "Please enter your X coordinate: "
-    @x = $stdin.gets.chomp.to_i
-    puts "Please enter your Y coordinate: "
-    @y = $stdin.gets.chomp.to_i
+    puts "Please enter your X coordinate: "; @x = $stdin.gets.chomp.to_i
+    puts "Please enter your Y coordinate: "; @y = $stdin.gets.chomp.to_i
   end
 
-  def get_all_event_distances
-    events.each { |event| get_distance(event) }
-    @distances = @distances.sort_by {|id, d | d}
-  end
-
-  def get_distance(event)
-    d = Distance.new(x1: @x, y1: @y, x2: event.x, y2: event.y)
-    @distances[event] = d.calculate
+  def calculate_distances
+    @sorted_events = DistanceLog.calculate_all(@x, @y, @events)
   end
 
   def print_results
-    results = @distances[0,5]
     p "Closest events to (#{@x}, #{@y}): "
+    list_events(@sorted_events[0,5])
+  end
+
+  def list_events(results)
     results.each do |result|
       r = result[0]
       price = r.tickets.any? ? "£#{r.tickets.sort_by {|t| t.price}[0].price}" : "No tickets available"
       p "Event: #{r.id} - #{price}, Distance: #{result[1]}"
     end
   end
-
 
   def test_setup
     @x = 0; @y = 0

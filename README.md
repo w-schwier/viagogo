@@ -30,6 +30,10 @@ The program itself is easy to alter to accommodate for larger grids, however, th
 
 Dealing with multiple events at the same coordinates is also easily dealt with. If the data was randomly seeded, then the method of picking coordinates would be changed from destructive to selective. If it was manually entered, then it wouldn't be a problem.
 
+### Future Features
+
+At the moment the program gives you the 5 closest events, with just the cheapest ticket prices. I would like to add features that allowed the user to interact more with the data presented to them. Such as seeing all tickets. 
+
 ### Installation
 
 Open up terminal, change to the directory you want the repo and type ```git clone https://github.com/w-schwier/viagogo```

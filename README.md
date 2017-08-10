@@ -16,9 +16,22 @@ A small ruby program that given an X and Y co-ordinate, returns the 5 nearest ve
 
 ### My Approach
 
-Looking at the above requirements I decided I needed a ticket, event, calculator and an interface class.
+Looking at the above requirements I decided I needed a ticket, event, seeder and an interface class. Through construction of the app I realised I also needed a grid, distance and distance sorter.
+
+The grid class generates a two dimensional array of all possible coordinates. The seed class then randomly destructively selects a set amount of references. A set amount of events are created, being fed the previously generated coordinates. A random amount of tickets are also created for that event, also with a random price.
+
+The interface class controls the whole program using the distance class to calculate the distance between the users coordinates, and that of the event, using the Manhattan Distance. All events are stored in a hash with their distance from user, and sorted by proximity using the distance sorter class.
+
+All files are required in app.rb, interface instantiated and necessary functions run.
+
+My tests need improvement as no stubbing is done. I instead used them to get visibility to help identify what data structures I was dealing with.
+
+The program itself is easy to alter to accommodate for larger grids, however, the program runs very slow if a massive grid is used. Scaling here wouldn't be an issue as it is unlikely data would be seeded randomly, however, if it was the grid class would need to be altered.
+
+Dealing with multiple events at the same coordinates is also easily dealt with. If the data was randomly seeded, then the method of picking coordinates would be changed from destructive to selective. If it was manually entered, then it wouldn't be a problem.
 
 ### Installation
+
 
 ### User Stories
 

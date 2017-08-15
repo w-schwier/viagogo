@@ -46,7 +46,7 @@ To run the app enter: ``` ruby ./lib/app.rb ```
 
 ### User Stories
 
-As a music enthusiast, so they I can conveniently go to a gig, I want to a list of the nearest gigs with ticket prices.
+As a music enthusiast, so that I can conveniently go to a gig, I want to a list of the nearest gigs with ticket prices.
 
 ### Challenges
 

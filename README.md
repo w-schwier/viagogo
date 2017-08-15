@@ -50,4 +50,4 @@ As a music enthusiast, so that I can conveniently go to a gig, I want to a list 
 
 ### Challenges
 
-I had trouble with doubling and stubbing, however, I also feel with a bit more time I would of got there.
+I had trouble with doubling and stubbing, however, I also feel with a bit more time I would have got there.

@@ -4,7 +4,7 @@
 
 A small ruby program that given an X and Y co-ordinate, returns the 5 nearest venues, the cheapest priced ticket and distance.
 
-### The challenge
+### The Challenge
 
 * My program should randomly generate seed data.
 * My program should operate in a world that ranges from -10 to +10 (Y axis), and -10 to +10 (X axis).
